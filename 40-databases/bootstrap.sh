@@ -10,7 +10,7 @@ ANSIBLE_DIR=terraform-ansible-roboshop
 
 mkdir -p /opt/roboshop/ansible
 mkdir -p /var/log/ansible
-touch ansible.log
+touch /var/log/ansible/ansible.log
 
 cd $REPO_DIR
 
@@ -22,4 +22,4 @@ else
     cd $ANSIBLE_DIR
 fi
 
-ansible-playbook -e component=$component -e env=$env
+ansible-playbook -e component=$component -e env=$env main.yaml
