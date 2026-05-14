@@ -13,3 +13,11 @@ variable "instance_type" {
 variable "env" {
     type = string
 }
+
+variable "zone_id" {
+    default = "Z0034753Q3D37U6HFEYZ"
+}
+
+varaible "domain_name" {
+    default = "pavithra.sbs"
+}
