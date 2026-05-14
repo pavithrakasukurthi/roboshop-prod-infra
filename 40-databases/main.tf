@@ -32,6 +32,14 @@ resource "terraform_data" "mongodb" {
         ]
     }
 }
+resource "aws_route53_record" "mongodb" {
+    zone_id = var.zone_id
+    name = mongodb-${var.environment}.${var.domain_name}
+    type = "A"
+    ttl = 1
+    records = [aws_instance.mongodb.private_ip]
+    allow_overwrite = true
+}
 
 resource "aws_instance" "redis" {
     ami = local.ami_id
@@ -67,7 +75,14 @@ resource "terraform_data" "redis" {
         ]
     }
 }
-
+resource "aws_route53_record" "redis" {
+    zone_id = var.zone_id
+    name = redis-${var.environment}.${var.domain_name}
+    type = "A"
+    ttl = 1
+    records = [aws_instance.redis.private_ip]
+    allow_overwrite = true
+}
 
 resource "aws_instance" "mysql" {
     ami = local.ami_id
@@ -107,6 +122,15 @@ resource "terraform_data" "mysql" {
         ]
     }
 }
+resource "aws_route53_record" "mysql" {
+    zone_id = var.zone_id
+    name = mysql-${var.environment}.${var.domain_name}
+    type = "A"
+    ttl = 1
+    records = [aws_instance.mysql.private_ip]
+    allow-overwrite = true
+}
+
 
 resource "aws_instance" "rabbitmq" {
     ami = local.ami_id
@@ -141,4 +165,11 @@ resource "terraform_data" "rabbitmq" {
             "sudo sh /tmp/bootstrap.sh rabbitmq ${var.env}"
         ]
     }
+}
+resource "aws_route53_record" "rabbitmq" {
+    zone_id = var.zone_id
+    name = rabbitmq-${var.environment}.${var.domain_name}
+    type = "A"
+    ttl = 1
+    records = [aws_instance.rabbitmq.private_ip]
 }
