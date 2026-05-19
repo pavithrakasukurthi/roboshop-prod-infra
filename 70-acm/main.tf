@@ -25,7 +25,7 @@ resource "aws_route53_record" "roboshop" {
     allow_overwrite = true
     name = each.value.name
     type = each.value.type
-    records = [ech.value.record]
+    records = [each.value.record]
     ttl = 1
     zone_id = var.zone_id
 }
