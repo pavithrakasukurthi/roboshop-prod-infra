@@ -7,8 +7,8 @@ locals {
     rabbitmq_sg_id = data.aws_ssm_parameter.rabbitmq_sg_id.value 
     common_name = "${var.project}-${var.environment}"
     common_tags = {
-        Project = "roboshop"
-        Environment = "stage"
+        Project = var.project
+        Environment = var.environment
         Terraform = true
     }
 }
