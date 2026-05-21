@@ -114,3 +114,12 @@ resource "aws_security_group_rule" "frontend_alb_public" {
   protocol          = "tcp"
   to_port           = 443
 }
+
+resource "aws_security_group_rule" "catalogue_bastion" {
+    type = "ingress"
+    security_group_id = local.catalogue_sg_id
+    source_security_group_id = local.bastion_sg_id
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+}
