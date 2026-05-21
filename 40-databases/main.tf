@@ -91,11 +91,6 @@ resource "aws_instance" "mysql" {
     subnet_id = local.database_subnet_id
     iam_instance_profile = aws_iam_instance_profile.mysql.name
 
-    resource "aws_iam_instance_profile" "mysql" {
-    name = "mysql"
-    role = "MysqlSSMParameterRead"
-    }
-
     tags = merge(
         local.common_tags,
         {
@@ -105,7 +100,7 @@ resource "aws_instance" "mysql" {
 }
 resource "aws_iam_instance_profile" "mysql" {
     name = "mysql"
-    role = "EC2SSMParameterRead"
+    role = "MysqlSSMParameterRead"
 }
 resource "terraform_data" "mysql" {
     triggers_replace = [
