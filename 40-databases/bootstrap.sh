@@ -4,6 +4,9 @@ component=$1
 environment=$2
 dnf install ansible -y
 
+sudo dnf install python3-pip -y
+pip3 install boto3 botocore
+
 REPO_URL=https://github.com/pavithrakasukurthi/terraform-ansible-roboshop.git
 REPO_DIR=/opt/roboshop/ansible
 ANSIBLE_DIR=terraform-ansible-roboshop
