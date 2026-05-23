@@ -32,7 +32,7 @@ resource "terraform_data" "catalogue" {
     provisioner "remote-exec" {
         inline = [
             "sudo chmod +x /tmp/catalogue.sh",
-             "sudo sh /tmp/catalogue.sh catalogue ${var.environment}"
+             "sudo sh /tmp/catalogue.sh catalogue ${var.env}"
         ]
     }
 }

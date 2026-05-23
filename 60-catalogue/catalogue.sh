@@ -1,7 +1,7 @@
 #! /bin/bash
 
 component=$1
-environment=$2
+env=$2
 dnf install ansible -y
 
 REPO_URL=https://github.com/pavithrakasukurthi/terraform-ansible-roboshop.git
@@ -22,4 +22,4 @@ else
     cd $ANSIBLE_DIR
 fi
 
-ansible-playbook -e component=$component -e environment=$environment main.yaml
+ansible-playbook -e component=$component -e env=$env main.yaml

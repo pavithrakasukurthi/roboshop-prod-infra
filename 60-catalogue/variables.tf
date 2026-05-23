@@ -13,3 +13,7 @@ variable "instance_type" {
 variable "domain_name" {
     default = "pavithra.sbs"
 }
+
+variable "env" {
+    default = "stage"
+}
