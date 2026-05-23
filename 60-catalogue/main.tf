@@ -81,7 +81,7 @@ resource "aws_launch_template" "catalogue" {
     instance_type = "${var.instance_type}"
     vpc_security_group_ids = [local.catalogue_sg_id]
 
-    instance_initiated_shutdown_behaviour = "terminate"
+    instance_initiated_shutdown_behavior = "terminate"
     update_default_version = true
 
     tags = merge(
