@@ -32,7 +32,7 @@ resource "terraform_data" "catalogue" {
     provisioner "remote-exec" {
         inline = [
             "sudo chmod +x /tmp/catalogue.sh",
-             "sudo sh /tmp/catalogue.sh catalogue {var.env}"
+             "sudo sh /tmp/catalogue.sh catalogue {var.environment}"
         ]
     }
 }
@@ -50,7 +50,7 @@ resource "aws_ami_from_instance" "catalogue" {
     tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name}-catalogue-ami
+            Name = "${local.common_name}-catalogue-ami"
         }
     )
     depends_on = [aws_ec2_instance_state.catalogue]
