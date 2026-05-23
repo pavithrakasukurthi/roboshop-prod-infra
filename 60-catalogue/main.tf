@@ -136,7 +136,7 @@ resource "aws_autoscaling_group" "catalogue" {
             min_healthy_percenatge = 50
         }
 
-        triggers = [launch_template]
+        triggers = ["launch_template"]
     }
 
     dynamic "tag" {
