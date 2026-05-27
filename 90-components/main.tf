@@ -1,5 +1,5 @@
 module "component" {
-    source = "git::https://github.com/pavithrakasukurthi/terraform-components-module.git?ref-main"
+    source = "git::https://github.com/pavithrakasukurthi/terraform-components-module.git"
      
      count = length(var.component)
      project = var.project
