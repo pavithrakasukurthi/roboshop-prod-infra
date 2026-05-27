@@ -1,5 +1,5 @@
 variable "component" {
-    default = ["catalogue", "cart", "user", "payment", "shipping". "frontend"]
+    default = ["catalogue", "cart", "user", "payment", "shipping", "frontend"]
 }
 
 variable "project" {
