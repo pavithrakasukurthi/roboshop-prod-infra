@@ -14,3 +14,7 @@ variable "bastion_tags" {
     type = map
     default = {}
 }
+
+variable "zone_id" {
+    default = "Z0034753Q3D37U6HFEYZ"
+}

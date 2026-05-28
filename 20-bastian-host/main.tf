@@ -25,3 +25,12 @@ resource "aws_iam_instance_profile" "bastion" {
     role = "BastionTerraformAdmin"
 }
 
+resource "aws_route53_record" "bastion" {
+    zone_id = var.zone_id
+    name = "bastion.pavithra.sbs"
+    type = "A"
+    ttl = 1
+    records = [aws_instance.bastion.public_ip]
+    allow_overwrite = true
+}
+
